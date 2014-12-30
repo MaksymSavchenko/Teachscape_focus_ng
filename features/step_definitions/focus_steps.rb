@@ -12,9 +12,13 @@ end
 
 When /^I click the Login button$/ do
   on(LoginPage).login
-  sleep 10
 end
 
 Then /^I should see "([^"]*)"$/ do |expected|
+  sleep 4
   @current_page.text.should include expected
+end
+
+When /^I drag exersize to drop area$/ do
+exercise.drag_and_drop_on drop_place
 end

@@ -8,9 +8,14 @@ Scenario Outline:
   When I enter "<username>" in the name field
   And I enter "<password>" in password field
   And I click the Login button
-  Then I should see "Welcome Teachscape Admin"
+  Then I should see "<result>"
 
 
 Examples:
-  | username       | password |
-  | boston-tsadmin | teach    |
+  | username                        | password  | result                                             |
+  | wrong-user-name                 | nopass    | invalid combination of username and password       |
+  | wrong-user-name                 |           | User name and password are required                |
+  | boston-tsadmin                  | teach     | Welcome Teachscape Admin                           |
+  | sbasile@bostonpublicschools.org | teach     | Scheba Basile                                      |
+
+  Scenario:
